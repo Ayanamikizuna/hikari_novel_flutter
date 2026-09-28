@@ -25,10 +25,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
-
     defaultConfig {
         applicationId = "github.ayanami.hikari"
 
@@ -37,7 +33,6 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-
 
     signingConfigs {
         create("release") {
@@ -48,7 +43,6 @@ android {
         }
     }
 
-
     buildTypes {
         release {
             signingConfig = signingConfigs.getByName("release")
@@ -56,6 +50,11 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
 
 flutter {
     source = "../.."
